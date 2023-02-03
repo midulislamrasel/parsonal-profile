@@ -1,32 +1,13 @@
-*{
+.navbar a{
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-left: 10px;
     text-decoration: none;
 }
-a{
-    margin-left: 20px;
-    color: #fff;
-}
-.navbar_section{
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    align-items: center;
-    background-color:#27283D;
-    width: 100%;
+.navbar_active{
     position: fixed;
-
-}
-
-.navbar_seroll{
-    background-color: #fff;
-    color: #27283D;
-}
-
-.logo_section img{
-    width: 60px;
-}
-.navbar {
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    text-align: end;
-    margin-right: 34px;
+    background-color: aliceblue;
+    top: 0;
+    /* height: 100px; */
+    width: 100%;
 }

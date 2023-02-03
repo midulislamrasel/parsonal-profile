@@ -1,34 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
-    const [navbar, setNavbar] = useState(false)
-    const changBagNav = () => {
-        if (window.scrollY) {
-            setNavbar(true)
-        } else {
-            setNavbar(false)
-        }
+  const [navbar, setNavbar] = useState(false);
+  
+  const changBagNav = () => {
+    if (window.scrollY >=80) {
+      setNavbar (true);
+    } else {
+      setNavbar (false);
     }
+    console.log(navbar)
+  };
+ 
+  useEffect(() => {
+    window.addEventListener('scroll', changBagNav)
+    return () => {
+      window.removeEventListener('scroll', changBagNav)
+    }
+  })
   return (
-    <div>
-        <div className= "navbar_section" >
-        <div className="logo_section">
-          <Link to="/"><img src="logoPS.png" alt="" /></Link>
-        </div>
-        <div className="navbar">
-          <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/Team">Team</Link>
-          <Link to="/about">About</Link>
-        </div>
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/sing in ">Sing in</Link>
-        </div>
+    <>
+      <div>
+        <div className={`navbar ${navbar?'navbar_active':''}`}>
+          <Link to='/' >Home</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/team'>Team</Link>
+          <Link to='/services'>Services</Link>
+        </div>  
       </div>
-    </div>
+    </>
   );
 };
 
